@@ -6,12 +6,13 @@ import './components/bk-tab';
 
 @customElement('bk-app')
 export class BKApp extends LitElement {
-	@property({type: Site}) site = Site.Developer;
+	@property() 
+	private site: Site = Site.Developer;
 
-	render(){
+	render() {
 		return html`
-			<p>${this.site}</p>
 			<bk-tab></bk-tab>
+			<p>${this.site}</p>
 		`;
   	}
 }
