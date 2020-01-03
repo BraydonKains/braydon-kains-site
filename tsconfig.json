@@ -1,0 +1,30 @@
+{
+  "compilerOptions": {
+    "target": "es2017",                          
+	"lib": ["es2017", "dom"],
+    "module": "es2015",                    
+    "allowJs": true,                       
+    "checkJs": true,
+    "sourceMap": true,
+    "rootDir": "./src",
+	"outDir": "dist",
+    "composite": true,
+    "removeComments": true,
+
+    "strict": true,
+
+    "noUnusedLocals": true,
+    "noUnusedParameters": true,
+    "noImplicitReturns": true,
+    "noFallthroughCasesInSwitch": true,
+
+    "moduleResolution": "node",
+    "baseUrl": "./",
+    "esModuleInterop": true,
+    "allowUmdGlobalAccess": true,
+
+    "experimentalDecorators": true,
+
+    "forceConsistentCasingInFileNames": true 
+  }
+}

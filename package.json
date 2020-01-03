@@ -1,0 +1,23 @@
+{
+  "name": "braydon-kains-site",
+  "version": "1.0.0",
+  "description": "My personal site",
+  "main": "index.js",
+  "scripts": {
+    "test": "test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/BraydonKains/braydon-kains-site.git"
+  },
+  "author": "BraydonKains",
+  "license": "Apache-2.0",
+  "bugs": {
+    "url": "https://github.com/BraydonKains/braydon-kains-site/issues"
+  },
+  "homepage": "https://github.com/BraydonKains/braydon-kains-site#readme",
+  "dependencies": {
+    "@webcomponents/webcomponentsjs": "^2.4.0",
+    "lit-element": "^2.2.1"
+  }
+}
