@@ -12,23 +12,17 @@ export class BKTab extends LitElement {
 	
 	// Properties
 	@property()
-	private detail: TabChangeDetail = {} as any;
-	@property()
-	private event: TabChangeEvent;	
-
-	constructor() {
-		super();
-
-		this.event = new TabChangeEvent(this.detail);
-	}
+	private event?: TabChangeEvent;	
 
 	connectedCallback() {
 		super.connectedCallback();
 
-		this.detail.tab = this.text;
-		this.detail.value = this.value;
+		let detail : TabChangeDetail = {
+			tab: this.text,
+			value: this.value
+		}
 
-		this.event = new TabChangeEvent(this.detail);
+		this.event = new TabChangeEvent(detail);
 	}
 
 	static get styles() {
@@ -37,7 +31,9 @@ export class BKTab extends LitElement {
 	}
 
 	fireChangedEvent() : void {
-		this.dispatchEvent(this.event.getEvent());
+		if(this.event) {
+			this.dispatchEvent(this.event.getEvent());
+		}
 	}
 
 	render() {
