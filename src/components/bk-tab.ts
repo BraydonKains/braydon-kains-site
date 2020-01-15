@@ -1,54 +1,44 @@
 import {
-	LitElement, html, customElement, css
+	LitElement, html, customElement, css, property
 } from 'lit-element';
+import { TabChangeEvent } from '../objects/events/TabChangeEvent';
+import { TabChangeDetail } from '../objects/events/details/TabChangeDetail';
 
 @customElement('bk-tab')
 export class BKTab extends LitElement {
+	// Attributes
+	@property({ type: String }) text = '';
+	@property({ type: Number }) value = 0;
+	
+	// Properties
+	@property()
+	private event?: TabChangeEvent;	
+
+	connectedCallback() {
+		super.connectedCallback();
+
+		let detail : TabChangeDetail = {
+			tab: this.text,
+			value: this.value
+		}
+
+		this.event = new TabChangeEvent(detail);
+	}
+
 	static get styles() {
 		return css`
-		tab {
-			overflow: hidden;
-			border: 1px solid #ccc;
-			background-color: #f1f1f1;
-		}
-
-		.tab button {
-		  background-color: inherit;
-		  float: left;
-		  border: none;
-		  outline: none;
-		  cursor: pointer;
-		  padding: 14px 16px;
-		  transition: 0.3s;
-		}
-
-		.tab button:hover {
-		  background-color: #ddd;
-		}
-
-		.tab button.active {
-		  background-color: #ccc;
-		}
-
-		.tabcontent {
-		  display: none;
-		  padding: 6px 12px;
-		  border: 1px solid #ccc;
-		  border-top: none;
-		}
 		`;
 	}
 
-	fireChangeEvent() {
-		console.log("hi");
+	fireChangedEvent() : void {
+		if(this.event) {
+			this.dispatchEvent(this.event.getEvent());
+		}
 	}
 
 	render() {
 		return html`
-		<div class="tab">
-			<button class="tablinks" @onclick="${this.fireChangeEvent()}">Developer</button>
-			<button class="tablinks" @onclick="${this.fireChangeEvent()}">Musician</button>
-		</div>
+			<button @click="${this.fireChangedEvent}">${this.text}</button>
 		`;
   	}
 }
