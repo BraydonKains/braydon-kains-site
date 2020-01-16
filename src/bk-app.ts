@@ -2,7 +2,9 @@ import {
 	LitElement, html, customElement, css, property
 } from 'lit-element';
 import { Site } from './objects/enums/SiteEnum'
-import './components/bk-tab';
+import './components/controls/bk-tab';
+import './components/views/bk-developer';
+import './components/views/bk-musician';
 
 @customElement('bk-app')
 export class BKApp extends LitElement {
@@ -15,18 +17,17 @@ export class BKApp extends LitElement {
 		`;
 	}
 
-	handleTabChange(e : any) : void {
+	handleTabChange(e : CustomEvent) : void {
 		this.site = e.detail.value;	
-		console.log(this.site);
 	}
 
 	renderSiteView() {
 		switch(this.site) {
 			case Site.Developer:
-				return html`<p>Welcome to the Developer site!</p>`;
+				return html`<bk-developer></bk-developer>`;
 				break;
 			case Site.Musician:
-				return html`<p>Welcome to the Musician site!</p>`;
+				return html`<bk-musician></bk-musician>`;
 				break;
 		}
 	}
