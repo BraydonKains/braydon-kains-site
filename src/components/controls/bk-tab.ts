@@ -1,8 +1,8 @@
 import {
 	LitElement, html, customElement, css, property
 } from 'lit-element';
-import { TabChangeEvent } from '../objects/events/TabChangeEvent';
-import { TabChangeDetail } from '../objects/events/details/TabChangeDetail';
+import { TabChangeEvent } from '../../objects/events/TabChangeEvent';
+import { TabChangeDetail } from '../../objects/events/details/TabChangeDetail';
 
 @customElement('bk-tab')
 export class BKTab extends LitElement {
