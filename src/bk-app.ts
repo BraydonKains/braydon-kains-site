@@ -25,10 +25,8 @@ export class BKApp extends LitElement {
 		switch(this.site) {
 			case Site.Developer:
 				return html`<bk-developer></bk-developer>`;
-				break;
 			case Site.Musician:
 				return html`<bk-musician></bk-musician>`;
-				break;
 		}
 	}
 
